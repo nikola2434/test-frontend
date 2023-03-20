@@ -1,13 +1,12 @@
+import { orderService } from "./../../../api/order.service";
 import { makeAutoObservable } from "mobx";
 import { OrdersListItem } from "./types";
 import { createBrowserHistory, History } from "history";
-import client from "api/gql";
-import { GET_ORDERS_QUERY } from "~/screens/Orders/List/queries";
 
 export default class OrdersListState {
   initialized = false;
   loading = false;
-  page = 1;
+  page = Number(new URL(window.location.href).searchParams.get("page")) || 1;
   totalPages = 1;
   orders: OrdersListItem[] = [];
   history: History;
@@ -45,15 +44,13 @@ export default class OrdersListState {
   nextPage(): void {
     if (this.page >= this.totalPages) return;
     this.setPage(this.page + 1);
-    this.loading = true;
-    this.loadOrders();
+    this.loadOrders(this.page);
   }
 
   prevPage(): void {
     if (this.page <= 1) return;
     this.setPage(this.page - 1);
-    this.loading = true;
-    this.loadOrders();
+    this.loadOrders(this.page);
   }
 
   setTotalPages(totalPages: number): void {
@@ -68,14 +65,19 @@ export default class OrdersListState {
     return this.page > 1;
   }
 
-  async loadOrders() {
+  async loadOrders(page: number) {
     this.loading = true;
+    const res = await orderService.getOrders(page);
+    console.log(res);
+    if (!res?.orders) return;
+    this.setOrders(res.orders);
+    this.setTotalPages(res.pagination.totalPageCount);
     this.loading = false;
   }
 
   initialize() {
     if (this.initialized) return;
     this.initialized = true;
-    this.loadOrders();
+    this.loadOrders(1);
   }
 }

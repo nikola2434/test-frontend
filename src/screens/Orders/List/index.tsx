@@ -17,7 +17,7 @@ const OrdersList = observer(
     useEffect(() => {
       if (state.initialized) return;
       state.initialize();
-    });
+    }, []);
 
     return (
       <React.Fragment>

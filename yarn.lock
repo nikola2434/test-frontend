@@ -1252,7 +1252,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@graphql-typed-document-node/core@^3.0.0", "@graphql-typed-document-node/core@^3.1.0":
+"@graphql-typed-document-node/core@^3.0.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
   integrity sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==
@@ -2137,13 +2137,20 @@
     "@typescript-eslint/types" "4.22.1"
     eslint-visitor-keys "^2.0.0"
 
-"@urql/core@^2.1.4":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@urql/core/-/core-2.1.5.tgz#8fbc0846d6020cee89dadbee07ffb0a618ab29d8"
-  integrity sha512-iX30xZ6exdJbajv2S4gxVP+1ZEh57x9gEuUrpOCLWZp84970XDSo82xoz+11I+NGWiQNZfbIs6LTLaie/iG3OQ==
+"@urql/core@>=3.2.0", "@urql/core@^3.2.0":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-3.2.2.tgz#2a44015b536d72981822f715c96393d8e0ddc576"
+  integrity sha512-i046Cz8cZ4xIzGMTyHZrbdgzcFMcKD7+yhCAH5FwWBRjcKrc+RjEOuR9X5AMuBvr8c6IAaE92xAqa4wmlGfWTQ==
   dependencies:
-    "@graphql-typed-document-node/core" "^3.1.0"
-    wonka "^4.0.14"
+    wonka "^6.1.2"
+
+"@urql/exchange-graphcache@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@urql/exchange-graphcache/-/exchange-graphcache-5.2.0.tgz#d8af2ac73e3644e1947a82f0da1bdb912c9f9ccd"
+  integrity sha512-wHSTkp6TAhioauK/85DyiiQP5vz4EAJx7JQ+39OaHZ9TSdDqWkg4zs9VAhV3OzSopA9DNbihZVZ32w7q8BSUEA==
+  dependencies:
+    "@urql/core" ">=3.2.0"
+    wonka "^6.0.0"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -4427,6 +4434,11 @@ dotenv@8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
+dotenv@^16.0.3:
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
+  integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
 
 duplexer@^0.1.1:
   version "0.1.2"
@@ -11355,13 +11367,13 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-urql@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/urql/-/urql-2.0.4.tgz#8d6d9f98521c45afc56ca1373141a5cc767af49f"
-  integrity sha512-ARITb+l+DsGbK/y3mxQjbC4lw8Z4IqFfk4Va8Eg1rDpN1HhOkMTxFA/YvGZoQIU1re/SsARLe//TEBtsgH0/CQ==
+urql@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-3.0.4.tgz#f73dbd2e5b134b7328c14d5b8ab1f93f93db8990"
+  integrity sha512-okmQKQ9pF4t8O8iCC5gH9acqfFji5lkhW3nLBjx8WKDd2zZG7PXoUpUK19VQEMK87L6VFBOO/XZ52MMKFEI0AA==
   dependencies:
-    "@urql/core" "^2.1.4"
-    wonka "^4.0.14"
+    "@urql/core" "^3.2.0"
+    wonka "^6.0.0"
 
 use@^3.1.0:
   version "3.1.1"
@@ -11722,10 +11734,10 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
-wonka@^4.0.14:
-  version "4.0.15"
-  resolved "https://registry.yarnpkg.com/wonka/-/wonka-4.0.15.tgz#9aa42046efa424565ab8f8f451fcca955bf80b89"
-  integrity sha512-U0IUQHKXXn6PFo9nqsHphVCE5m3IntqZNB9Jjn7EB1lrR7YTDY3YWgFvEvwniTzXSvOH/XMzAZaIfJF/LvHYXg==
+wonka@^6.0.0, wonka@^6.1.2:
+  version "6.2.5"
+  resolved "https://registry.yarnpkg.com/wonka/-/wonka-6.2.5.tgz#26e54a6827b96a6164b845106f4d925ede4089bb"
+  integrity sha512-adhGYKm5xWIZYXRkzEqHbRbRl2gXHqOudjQJMXpRgSyboFmaKOjGm3RIThBk4tZdiZx1DXuKK0H9wKBgXHhzZg==
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
